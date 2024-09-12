@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let formData = { email: '', message: '' };
 
+    const form = document.querySelector('.feedback-form');
+    const textarea = form.querySelector('textarea');
+    const emailInput = form.querySelector('input[name="email"]');
+
     const savedData = localStorage.getItem(STORAGE_KEY);
     if (savedData) {
         try { 
@@ -19,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
         form.email.value = formData.email || '';
         form.message.value = formData.message || '';
         } catch (error) {  
+        
     }
  }
-    const form = document.querySelector('.feedback-form');
-    const textarea = form.querySelector('textarea');
-
+    textarea.addEventListener('input', handleMessageInput);
+    emailInput.addEventListener('input', handleEmailInput);
     form.addEventListener('submit', handleFormSubmit);
 
 
@@ -48,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
         formData = { email: '', message: '' };
     };
 
-    textarea.addEventListener('input', handleMessageInput);
 
     function handleMessageInput(event) {
 
@@ -65,8 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
         data = event.target.value;
 
         localStorage.setItem(STORAGE_KEY, data)
-
         
+    };
+
+     function handleEmailInput(event) {
+        
+          formData.email = event.target.value;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+        console.log(event.target.value); 
     }
 
 });
