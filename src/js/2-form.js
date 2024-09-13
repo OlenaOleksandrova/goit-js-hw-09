@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedData) {
         try { 
         formData = JSON.parse(savedData);
-        form.email.value = formData.email || '';
-        form.message.value = formData.message || '';
+        emailInput.value = formData.email || '';
+        textarea.value = formData.message || '';
         } catch (error) {  
         
     }
@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         // formData[event.target.name] = event.target.value.trim();
-        formData.email = form.email.value.trim();
-        formData.message = form.message.value.trim();
+        formData.email = emailInput.value.trim();
+        formData.message = textarea.value.trim();
 
         if (formData.email === "" || formData.message === "") {
             alert('Fill please all fields');
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem(STORAGE_KEY);
     
         form.reset();
-        formData = { email: '', message: '' };
+        // formData = { email: '', message: '' };
     };
 
 
