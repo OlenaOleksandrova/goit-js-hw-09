@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let formData = { email: '', message: '' };
 
     const form = document.querySelector('.feedback-form');
-    const textarea = form.querySelector('textarea');
+    const textarea = form.querySelector('.text');
+    // const textarea = form.querySelector('textarea');
     const emailInput = form.querySelector('input[name="email"]');
 
     const savedData = localStorage.getItem(STORAGE_KEY);
@@ -47,9 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
        
         // const form = event.currentTarget;
         localStorage.removeItem(STORAGE_KEY);
-    
         form.reset();
-        // formData = { email: '', message: '' };
+        
     };
 
 
