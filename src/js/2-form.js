@@ -54,20 +54,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function handleMessageInput(event) {
+        formData.message = event.target.value;
 
         console.log(event.target.value);
 
-          formData.message = event.target.value;
+        //   formData.message = event.target.value;
         localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+        console.log(formData.message);
         
 
-        let data;
-        if (typeof event.target.value !== "string") {
-            data = JSON.stringify(event.target.value);
-        }
-        data = event.target.value;
+        // let data;
+        // if (typeof event.target.value !== "string") {
+        //     data = JSON.stringify(event.target.value);
+        // }
+        // data = event.target.value;
 
-        localStorage.setItem(STORAGE_KEY, data)
+        // localStorage.setItem(STORAGE_KEY, data)
         
     };
 
