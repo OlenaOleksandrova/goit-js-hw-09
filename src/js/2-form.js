@@ -42,13 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (formData.email === "" || formData.message === "") {
             alert('Fill please all fields');
             return;
-        }
+        };
+        
  localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-
+       console.log(formData);
        
         // const form = event.currentTarget;
         localStorage.removeItem(STORAGE_KEY);
         form.reset();
+        event.target.reset();
         
     };
 
